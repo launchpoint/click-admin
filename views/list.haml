@@ -1,0 +1,12 @@
+-add_breadcrumb('Admin', admin_url())
+-$links = gather(event('admin_subnav_links'), 'links');
+%table
+  %tr
+    %th =se("Admin Function")
+    %th =se("Admin Description")
+  -foreach($links as $link)
+    %tr
+      %td
+        =link_to($link['label'], $link['href'])
+      %td
+        =isset($link['description']) ? se($link['description']) : se($link['label'] . ' description')
